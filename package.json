@@ -1,0 +1,23 @@
+{
+    "name": "rest-api",
+    "version": "0.0.1",
+    "description": "Rest API Example",
+    "scripts": {
+        "start": "nodemon --config nodemon-debug.json",
+        "test": "jest"
+    },
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.1",
+        "@types/jest": "^24.0.19",
+        "jest": "^24.9.0",
+        "nodemon": "^1.19.4",
+        "ts-jest": "^24.1.0",
+        "ts-node": "^8.4.1",
+        "tsconfig-paths": "^3.9.0",
+        "typescript": "^3.6.4"
+    },
+    "license": "MIT"
+}
