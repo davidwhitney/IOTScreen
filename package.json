@@ -1,7 +1,7 @@
 {
-    "name": "rest-api",
+    "name": "IOTScreen-device",
     "version": "0.0.1",
-    "description": "Rest API Example",
+    "description": "Device software for low power IOTScreen clients",
     "scripts": {
         "start": "nodemon --config nodemon-debug.json",
         "test": "jest"
