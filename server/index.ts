@@ -4,19 +4,23 @@ import { AddressInfo } from "net";
 import { Express } from "express";
 import WebSocket = require("ws");
 import ImageService from "./ImageService";
+import ImageHandler from "./ImageHandler";
+
+const imageService: ImageService = new ImageService();
+const imageHandler: ImageHandler = new ImageHandler();
 
 const app: Express = express();
-app.use(express.static("public"));
-app.use("/", express.static(__dirname + "/public", { index: "index.html" }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.use("/", express.static(__dirname + "/public", { index: "index.html" }));
+app.use("/content", imageHandler.handle);
 
 const server: any = app.listen(3000, () => {
     const address: AddressInfo = server.address() as AddressInfo;
     console.log("Listening on port %s", address.port);
 });
 
-const imageService: ImageService = new ImageService();
 const wss: WebSocket.Server = new WebSocket.Server({ port: 8080 });
 
 wss.on("connection", (ws: WebSocket) => {

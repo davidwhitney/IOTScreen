@@ -1,27 +1,10 @@
-class ImagePlaylist {
-    private entries: string[];
-    private currentItem: number;
+import ImagePlaylist from "./ImagePlaylist";
 
-    constructor(entries:string[]) {
-        this.entries = entries;
-        this.currentItem = -1;
-    }
-
-    public latest(): string {
-        this.currentItem++;
-        if(this.currentItem >= this.entries.length) {
-            this.currentItem = 0;
-        }
-
-        return this.entries[this.currentItem];
-    }
-}
-
-class ImageService {
+export default class ImageService {
     private playlist: ImagePlaylist;
 
     constructor() {
-        this.playlist = new ImagePlaylist([
+        this.playlist = new ImagePlaylist(5000, [
             "red",
             "green",
             "yellow"
@@ -30,6 +13,3 @@ class ImageService {
 
     public getLatestImage = () => this.playlist.latest();
 }
-
-
-export default ImageService;
